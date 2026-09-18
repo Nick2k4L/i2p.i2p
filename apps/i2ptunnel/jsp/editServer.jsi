@@ -187,7 +187,7 @@
                        String dtext = canChangeDest ? htext : stopFirst;
                        String ddisabled = canChangeDest ? "" : " readonly=\"readonly\" ";
 %>
-                <input type="text" size="30" id="privKeyFile" name="privKeyFile" title="<%=dtext%>" value="<%=editBean.getPrivateKeyFile(curTunnel)%>" class="freetext" placeholder="<%=intl._t("required")%>" required <%=ddisabled%> />
+                <input type="text" size="30" id="privKeyFile" name="privKeyFile" title="<%=dtext%>" value="<%=net.i2p.data.DataHelper.escapeHTML(editBean.getPrivateKeyFile(curTunnel))%>" class="freetext" placeholder="<%=intl._t("required")%>" required <%=ddisabled%> />
             </td>
         </tr>
 <%
@@ -744,7 +744,7 @@
             </th>
         </tr><tr>
             <td colspan="2">
-                <input type="text" class="freetext" size="30" id="altPrivKeyFile" name="altPrivKeyFile" title="<%=atitle%>" <%=adisabled%> value="<%=editBean.getAltPrivateKeyFile(curTunnel)%>" />
+                <input type="text" class="freetext" size="30" id="altPrivKeyFile" name="altPrivKeyFile" title="<%=atitle%>" <%=adisabled%> value="<%=net.i2p.data.DataHelper.escapeHTML(editBean.getAltPrivateKeyFile(curTunnel))%>" />
             </td>
         </tr>
 <%
@@ -838,7 +838,7 @@
         </tr><tr>
             <td colspan="8">
                 <label for="filterDefinition"><%=intl._t("Absolute path to file containing filter definition")%></label>
-                <input type="text" id="filterDefinition" name="filterDefinition" value="<%=editBean.getFilterDefinition(curTunnel)%>" size="80"/>
+                <input type="text" id="filterDefinition" name="filterDefinition" value="<%=net.i2p.data.DataHelper.escapeHTML(editBean.getFilterDefinition(curTunnel))%>" size="80"/>
             </td>
         </tr><tr>
             <th colspan="8">
