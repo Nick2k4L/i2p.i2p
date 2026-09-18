@@ -2,7 +2,9 @@
 %><%@page pageEncoding="UTF-8"
 %><%@page trimDirectiveWhitespaces="true"
 %><%@page contentType="text/html" import="net.i2p.i2ptunnel.web.IndexBean"
-%><jsp:useBean class="net.i2p.i2ptunnel.web.IndexBean" id="indexBean" scope="request" /><%
+%>
+<%@ page import="net.i2p.data.DataHelper" %>
+<jsp:useBean class="net.i2p.i2ptunnel.web.IndexBean" id="indexBean" scope="request" /><%
     indexBean.storeMethod(request.getMethod());
     indexBean.storeSession(session);
 %><jsp:setProperty name="indexBean" property="tunnel" /><%-- must be set before key1-4 --%><jsp:setProperty name="indexBean" property="*" /><%
@@ -310,7 +312,7 @@
                    out.write(intl._t("Host not set"));
                    out.write("</font>");
                } else {
-                   out.write(cHost);
+                   out.write(DataHelper.escapeHTML(cHost));
                }
 %>
         </td><td class="tunnelPort">
@@ -366,9 +368,9 @@
                } else {
                    String cdest = indexBean.getClientDestination(curClient);
                    if (cdest.length() > 70) { // Probably a B64 (a B32 is 60 chars) so truncate
-                       %><%=cdest.substring(0, 45)%>&hellip;<%=cdest.substring(cdest.length() - 15, cdest.length())%><%
+                       %><%=DataHelper.escapeHTML(cdest.substring(0, 45))%>&hellip;<%=DataHelper.escapeHTML(cdest.substring(cdest.length() - 15, cdest.length()))%><%
                    } else if (cdest.length() > 0) {
-                       %><%=cdest%><%
+                       %><%=DataHelper.escapeHTML(cdest)%><%
                    } else {
                        %><i><%=intl._t("none")%></i><%
                    }
