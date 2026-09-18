@@ -158,7 +158,7 @@
                     %><td colspan="2"><%
                 }
 %>
-                <input type="text" size="30" name="proxyList" title="<%=intl._t("Specify the .i2p address or destination (b32 or b64) of the outproxy here.")%>&nbsp;<%=intl._t("For a random selection from a pool, separate with commas e.g. server1.i2p,server2.i2p")%>" value="<%=editBean.getClientDestination(curTunnel)%>" class="freetext proxyList" />
+                <input type="text" size="30" name="proxyList" title="<%=intl._t("Specify the .i2p address or destination (b32 or b64) of the outproxy here.")%>&nbsp;<%=intl._t("For a random selection from a pool, separate with commas e.g. server1.i2p,server2.i2p")%>" value="<%=net.i2p.data.DataHelper.escapeHTML(editBean.getClientDestination(curTunnel))%>" class="freetext proxyList" />
 <%
                 if ("sockstunnel".equals(tunnelType) || "socksirctunnel".equals(tunnelType)) {
                     boolean isHTTPS = editBean.getOutproxyType(curTunnel).equals("connect");
@@ -210,7 +210,7 @@
             </th>
         </tr><tr>
             <td colspan="2">
-                <input type="text" size="30" id="targetDestination" name="targetDestination" title="<%=intl._t("Specify the .i2p address or destination (b32 or b64) of the tunnel here.")%>&nbsp;<%=intl._t("For a random selection from a pool, separate with commas e.g. server1.i2p,server2.i2p")%>" value="<%=editBean.getClientDestination(curTunnel)%>" class="freetext destination" placeholder="<%=intl._t("required")%>" required />
+                <input type="text" size="30" id="targetDestination" name="targetDestination" title="<%=intl._t("Specify the .i2p address or destination (b32 or b64) of the tunnel here.")%>&nbsp;<%=intl._t("For a random selection from a pool, separate with commas e.g. server1.i2p,server2.i2p")%>" value="<%=net.i2p.data.DataHelper.escapeHTML(editBean.getClientDestination(curTunnel))%>" class="freetext destination" placeholder="<%=intl._t("required")%>" required />
                 <%=intl._t("name, name:port, or destination")%>
 <%
                         if ("streamrclient".equals(tunnelType)) {
@@ -494,7 +494,7 @@
                 <%=intl._t("Generate key to enable persistent client tunnel identity")%></label>
             </td><td>
                 <b><%=intl._t("File")%>:</b>
-                <input type="text" size="30" id="privKeyFile" name="privKeyFile" title="<%=p2text%>" value="<%=editBean.getPrivateKeyFile(curTunnel)%>" class="freetext" <%=p2disabled%>/>
+                <input type="text" size="30" id="privKeyFile" name="privKeyFile" title="<%=p2text%>" value="<%=net.i2p.data.DataHelper.escapeHTML(editBean.getPrivateKeyFile(curTunnel))%>" class="freetext" <%=p2disabled%>/>
             </td>
         </tr>
 <%
