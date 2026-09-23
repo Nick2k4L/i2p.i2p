@@ -56,9 +56,12 @@ class AccessCounter {
      * @return true if there is nothing left in the access history
      */
     boolean purge(long olderThan) {
-        while(!accesses.isEmpty() && accesses.get(0) < olderThan) {
-            accesses.remove(0);
+        int expired = 0;
+
+        while(expired < accesses.size() && accesses.get(expired) < olderThan) {
+            expired++;
         }
+        accesses.subList(0, expired).clear();
         return accesses.isEmpty();
     }
 }
