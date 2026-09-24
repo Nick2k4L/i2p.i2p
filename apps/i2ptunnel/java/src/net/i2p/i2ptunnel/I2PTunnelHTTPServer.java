@@ -112,6 +112,9 @@ public class I2PTunnelHTTPServer extends I2PTunnelServer {
     private final static String ERR_UNAVAILABLE =
          "HTTP/1.1 503 Service Unavailable\r\n"+
          "Content-Type: text/html; charset=iso-8859-1\r\n"+
+         "X-Frame-Options: SAMEORIGIN\r\n"+
+         "X-Content-Type-Options: nosniff\r\n"+
+         "Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; form-action 'self'; frame-ancestors 'self'; media-src 'none'\r\n"+
          "Cache-Control: no-cache\r\n"+
          "Connection: close\r\n"+
          "\r\n"+
@@ -124,6 +127,9 @@ public class I2PTunnelHTTPServer extends I2PTunnelServer {
     private final static String ERR_DENIED =
          "HTTP/1.1 429 Denied\r\n"+
          "Content-Type: text/html; charset=iso-8859-1\r\n"+
+         "X-Frame-Options: SAMEORIGIN\r\n"+
+         "X-Content-Type-Options: nosniff\r\n"+
+         "Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; form-action 'self'; frame-ancestors 'self'; media-src 'none'\r\n"+
          "Cache-Control: no-cache\r\n"+
          "Connection: close\r\n"+
          "\r\n"+
@@ -135,6 +141,9 @@ public class I2PTunnelHTTPServer extends I2PTunnelServer {
     private final static String ERR_INPROXY =
          "HTTP/1.1 403 Denied\r\n"+
          "Content-Type: text/html; charset=iso-8859-1\r\n"+
+         "X-Frame-Options: SAMEORIGIN\r\n"+
+         "X-Content-Type-Options: nosniff\r\n"+
+         "Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; form-action 'self'; frame-ancestors 'self'; media-src 'none'\r\n"+
          "Cache-Control: no-cache\r\n"+
          "Connection: close\r\n"+
          "\r\n"+
@@ -159,6 +168,9 @@ public class I2PTunnelHTTPServer extends I2PTunnelServer {
     private final static String ERR_REQUEST_URI_TOO_LONG =
          "HTTP/1.1 414 Request URI too long\r\n"+
          "Content-Type: text/html; charset=iso-8859-1\r\n"+
+         "X-Frame-Options: SAMEORIGIN\r\n"+
+         "X-Content-Type-Options: nosniff\r\n"+
+         "Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; form-action 'self'; frame-ancestors 'self'; media-src 'none'\r\n"+
          "Cache-Control: no-cache\r\n"+
          "Connection: close\r\n"+
          "\r\n"+
@@ -169,6 +181,9 @@ public class I2PTunnelHTTPServer extends I2PTunnelServer {
     private final static String ERR_HEADERS_TOO_LARGE =
          "HTTP/1.1 431 Request header fields too large\r\n"+
          "Content-Type: text/html; charset=iso-8859-1\r\n"+
+         "X-Frame-Options: SAMEORIGIN\r\n"+
+         "X-Content-Type-Options: nosniff\r\n"+
+         "Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; form-action 'self'; frame-ancestors 'self'; media-src 'none'\r\n"+
          "Cache-Control: no-cache\r\n"+
          "Connection: close\r\n"+
          "\r\n"+
@@ -180,6 +195,9 @@ public class I2PTunnelHTTPServer extends I2PTunnelServer {
     protected final static String ERR_REQUEST_TIMEOUT =
          "HTTP/1.1 408 Request timeout\r\n"+
          "Content-Type: text/html; charset=iso-8859-1\r\n"+
+         "X-Frame-Options: SAMEORIGIN\r\n"+
+         "X-Content-Type-Options: nosniff\r\n"+
+         "Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; form-action 'self'; frame-ancestors 'self'; media-src 'none'\r\n"+
          "Cache-Control: no-cache\r\n"+
          "Connection: close\r\n"+
          "\r\n"+
@@ -190,6 +208,9 @@ public class I2PTunnelHTTPServer extends I2PTunnelServer {
     private final static String ERR_BAD_REQUEST =
          "HTTP/1.1 400 Bad Request\r\n"+
          "Content-Type: text/html; charset=iso-8859-1\r\n"+
+         "X-Frame-Options: SAMEORIGIN\r\n"+
+         "X-Content-Type-Options: nosniff\r\n"+
+         "Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; form-action 'self'; frame-ancestors 'self'; media-src 'none'\r\n"+
          "Cache-Control: no-cache\r\n"+
          "Connection: close\r\n"+
          "\r\n"+
