@@ -97,11 +97,8 @@ public class PeerState2 extends PeerState implements SSU2Payload.PayloadCallback
     private static final int MAX_PATH_CHALLENGE_SENDS = 4;
     private static final long MAX_PATH_CHALLENGE_TIME = 30*1000;
     private static final long PATH_CHALLENGE_DELAY = 5*1000;
-
     private static final int MAX_INBOUND_MESSAGES = 64;
-    private static final int MAX_PATH_CHALLENGE_SENDS = 4;
-    private static final long MAX_PATH_CHALLENGE_TIME = 30 * 1000;
-    private static final long PATH_CHALLENGE_DELAY = 5 * 1000;
+
 
     // As SSU
     public static final int MIN_SSU_IPV4_MTU = 1292;
