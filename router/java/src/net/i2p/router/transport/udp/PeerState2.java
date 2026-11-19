@@ -803,7 +803,12 @@ public class PeerState2 extends PeerState implements SSU2Payload.PayloadCallback
                 // Bloom filter in router will catch it, but use IMF's Bloom filter
                 // to save resources here
                 messageDup = _transport.getInboundFragments().wasRecentlyReceived(messageId);
-                if (messageDup) {
+
+                // ensure the map does not get too large. This can be changed.
+                if (!messageDup && _inboundMessages.size() >= MAX_INBOUND_MESSAGES)
+                    expireInboundMessages();
+
+                if (messageDup || _inboundMessages.size() >= MAX_INBOUND_MESSAGES) {
                     state = null;
                 } else {
                     state = new InboundMessageState(_context, messageId, _remotePeer, data, off, len, frag, isLast);
