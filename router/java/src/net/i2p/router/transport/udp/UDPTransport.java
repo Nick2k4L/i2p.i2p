@@ -3797,6 +3797,8 @@ public class UDPTransport extends TransportImpl {
             _runCount++;
 
                 for (PeerState peer : _peersByIdent.values()) {
+                    // should expire inbound messages periodically...
+                    peer.expireInboundMessages();
                     long inactivityCutoff;
                     // if we offered to introduce them, or we used them as introducer in last 2 hours
                     if (peer.getWeRelayToThemAs() > 0 || peer.getIntroducerTime() > pingCutoff) {
