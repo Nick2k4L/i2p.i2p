@@ -110,7 +110,7 @@ class InboundMessageState implements CDQEntry {
         }
         if (_fragments[fragmentNum] == null) {
             // new fragment, read it
-            ByteArray message = _fragmentCache.acquire();
+            ByteArray message = new ByteArray(new byte[len]);
             System.arraycopy(data, off, message.getData(), 0, len);
             message.setValid(len);
             _fragments[fragmentNum] = message;
@@ -330,7 +330,7 @@ class InboundMessageState implements CDQEntry {
         _released = true;
         for (int i = 0; i < _fragments.length; i++) {
             if (_fragments[i] != null) {
-                _fragmentCache.release(_fragments[i]);
+                // _fragmentCache.release(_fragments[i]);
                 _fragments[i] = null;
             }
         }
