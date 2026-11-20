@@ -157,7 +157,10 @@ public class TunnelGatewayMessage extends FastI2NPMessageImpl {
         // If a zero-hop, the checksum will be verified in convert().
         int utype = data[curIndex++] & 0xff;
         UnknownI2NPMessage umsg = new UnknownI2NPMessage(_context, utype);
-        umsg.readBytes(data, utype, curIndex);
+        int read = umsg.readBytes(data, utype, curIndex, len - 1);
+        if (read != len - 1)
+            throw new I2NPMessageException("Expected: " + (len - 1) + "bytes " + " but bytes:  " + read);
+
         _msg = umsg;
     }
     
